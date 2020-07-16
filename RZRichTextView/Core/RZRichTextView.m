@@ -800,8 +800,8 @@
     RZRictAttributeSetingViewController *vc = [[RZRictAttributeSetingViewController alloc] init];
     
     NSMutableAttributedString *text =  [NSAttributedString rz_colorfulConfer:^(RZColorfulConferrer * _Nonnull confer) {
-        confer.text(@"这是第一段，这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段\n").font(rz_font(15)).textColor([UIColor grayColor]);
-        confer.text(@"这是第二段，测试文字测试文字测测试文字测试文字测测试文字测试文字测测试文字测试文字测结束\n").font(rz_font(15)).textColor([UIColor blackColor]);
+        confer.text(@"这是第一段\n").font(rz_font(15)).textColor([UIColor grayColor]);
+        confer.text(@"这是第二段结束\n").font(rz_font(15)).textColor([UIColor blackColor]);
     }].mutableCopy;
     [text addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, text.length)];
     vc.textView.attributedText = text;
@@ -810,8 +810,8 @@
     [vc pargraph:style didChanged:^(NSMutableParagraphStyle * _Nonnull paragraph) {
         style = paragraph;
         NSMutableAttributedString *text =  [NSAttributedString rz_colorfulConfer:^(RZColorfulConferrer * _Nonnull confer) {
-            confer.text(@"这是第一段，这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段\n").font(rz_font(15)).textColor([UIColor grayColor]);
-            confer.text(@"这是第二段，测试文字测试文字测测试文字测试文字测测试文字测试文字测测试文字测试文字测结束\n").font(rz_font(15)).textColor([UIColor blackColor]);
+            confer.text(@"这是第一段，\n").font(rz_font(15)).textColor([UIColor grayColor]);
+            confer.text(@"这是第二段结束\n").font(rz_font(15)).textColor([UIColor blackColor]);
         }].mutableCopy;
         [text addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, text.length)];
         vcWeak.textView.attributedText = text;
