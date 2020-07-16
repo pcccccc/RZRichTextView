@@ -39,8 +39,8 @@
         if (rz_k_screen_width < 330) {
             self.width = 35;
         }
-        self.row = 7;
-        self.section = 3;
+        self.row = 2;
+        self.section = 1;
         
         UICollectionViewFlowLayout *layot = [[UICollectionViewFlowLayout alloc] init];
         layot.itemSize = CGSizeMake(self.width, self.width);
