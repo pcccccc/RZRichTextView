@@ -495,7 +495,7 @@
     NSMutableAttributedString *attr = self.attributedText.mutableCopy;
     NSRange selectedRange = self.selectedRange;
     [attr replaceCharactersInRange:selectedRange withAttributedString:imageString];
-    [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
+    [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" \n"]];
     self.attributedText = attr;
     self.selectedRange = NSMakeRange(selectedRange.location + imageString.length, 0);
     
