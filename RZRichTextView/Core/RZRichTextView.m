@@ -471,39 +471,39 @@
 }
 
 - (void)insertImage:(UIImage *)image {
-    dispatch_async(dispatch_get_main_queue(), ^{
-       
-        if (!image) {
-            return ;
-        }
-        self.editing = YES;
-        CGFloat width = image.size.width;
-        CGFloat height = image.size.height;
-        if (width > self.frame.size.width  - 20) {
-            width = self.frame.size.width  - 20;
-            height = height * width / image.size.width;
-        }
-        NSTextAttachment *attchment = [[NSTextAttachment alloc] init];
-        attchment.image = image;
-        attchment.bounds = CGRectMake(0, 0, width, height);
-        NSMutableAttributedString *imageString = [NSMutableAttributedString attributedStringWithAttachment:attchment].mutableCopy;
-        
-        NSMutableDictionary *tempAttrDict = [self rz_attributesAtSelectedRange].mutableCopy; // 只有在手动改变range时，才会去重置到当前的属性
-        tempAttrDict[NSAttachmentAttributeName] = nil;  // 如果有图片，则删除，否则图片会覆盖当前插入的图片
-        if (tempAttrDict) {
-            [imageString addAttributes:tempAttrDict range:NSMakeRange(0, imageString.length)];
-        }
-        
-        NSMutableAttributedString *attr = self.attributedText.mutableCopy;
-        NSRange selectedRange = self.selectedRange;
-        [attr replaceCharactersInRange:selectedRange withAttributedString:imageString];
-        [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" \n"]];
-        self.attributedText = attr;
-        self.selectedRange = NSMakeRange(selectedRange.location + imageString.length, 0);
-        
-        [self becomeFirstResponder];
-        [self textViewDidChange:self];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//
+//        if (!image) {
+//            return ;
+//        }
+//        self.editing = YES;
+//        CGFloat width = image.size.width;
+//        CGFloat height = image.size.height;
+//        if (width > self.frame.size.width  - 20) {
+//            width = self.frame.size.width  - 20;
+//            height = height * width / image.size.width;
+//        }
+//        NSTextAttachment *attchment = [[NSTextAttachment alloc] init];
+//        attchment.image = image;
+//        attchment.bounds = CGRectMake(0, 0, width, height);
+//        NSMutableAttributedString *imageString = [NSMutableAttributedString attributedStringWithAttachment:attchment].mutableCopy;
+//
+//        NSMutableDictionary *tempAttrDict = [self rz_attributesAtSelectedRange].mutableCopy; // 只有在手动改变range时，才会去重置到当前的属性
+//        tempAttrDict[NSAttachmentAttributeName] = nil;  // 如果有图片，则删除，否则图片会覆盖当前插入的图片
+//        if (tempAttrDict) {
+//            [imageString addAttributes:tempAttrDict range:NSMakeRange(0, imageString.length)];
+//        }
+//
+//        NSMutableAttributedString *attr = self.attributedText.mutableCopy;
+//        NSRange selectedRange = self.selectedRange;
+//        [attr replaceCharactersInRange:selectedRange withAttributedString:imageString];
+//        [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" \n"]];
+//        self.attributedText = attr;
+//        self.selectedRange = NSMakeRange(selectedRange.location + imageString.length, 0);
+//
+//        [self becomeFirstResponder];
+//        [self textViewDidChange:self];
+//    });
 }
 #pragma mark - 增加历史记录
 - (void)addDataToHistory {
