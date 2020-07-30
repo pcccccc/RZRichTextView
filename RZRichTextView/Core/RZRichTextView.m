@@ -497,9 +497,9 @@
         NSMutableAttributedString *attr = self.attributedText.mutableCopy;
         NSRange selectedRange = self.selectedRange;
         [attr replaceCharactersInRange:selectedRange withAttributedString:imageString];
-        [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"放大率法定时间发附件打开了三家分绿卡的解放路空间啊第三款了房间的撒酒疯龙记大厦浪费家里的凯撒"]];
+        [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
         self.attributedText = attr;
-        self.selectedRange = NSMakeRange(selectedRange.location + imageString.length + @"放大率法定时间发附件打开了三家分绿卡的解放路空间啊第三款了房间的撒酒疯龙记大厦浪费家里的凯撒".length, 0);
+        self.selectedRange = NSMakeRange(selectedRange.location + imageString.length + @"\n".length, 0);
 
         [self becomeFirstResponder];
         [self textViewDidChange:self];
