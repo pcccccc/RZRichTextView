@@ -489,7 +489,7 @@
         NSMutableAttributedString *imageString = [NSMutableAttributedString attributedStringWithAttachment:attchment].mutableCopy;
 
         NSMutableDictionary *tempAttrDict = [self rz_attributesAtSelectedRange].mutableCopy; // 只有在手动改变range时，才会去重置到当前的属性
-//        tempAttrDict[NSAttachmentAttributeName] = nil;  // 如果有图片，则删除，否则图片会覆盖当前插入的图片
+        tempAttrDict[NSAttachmentAttributeName] = nil;  // 如果有图片，则删除，否则图片会覆盖当前插入的图片
         if (tempAttrDict) {
             [imageString addAttributes:tempAttrDict range:NSMakeRange(0, imageString.length)];
         }
@@ -497,7 +497,7 @@
         NSMutableAttributedString *attr = self.attributedText.mutableCopy;
         NSRange selectedRange = self.selectedRange;
         [attr replaceCharactersInRange:selectedRange withAttributedString:imageString];
-        [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" \n"]];
+        [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"放大率法定时间发附件打开了三家分绿卡的解放路空间啊第三款了房间的撒酒疯龙记大厦浪费家里的凯撒"]];
         self.attributedText = attr;
         self.selectedRange = NSMakeRange(selectedRange.location + imageString.length, 0);
 
