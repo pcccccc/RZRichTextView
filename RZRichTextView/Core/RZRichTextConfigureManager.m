@@ -16,6 +16,17 @@
 
 @implementation RZRichTextConfigureManager
 
++ (instancetype)defaultManager {
+    
+    static RZRichTextConfigureManager *manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[RZRichTextConfigureManager alloc] init];
+        [manager loadAttributeItemDatas];
+    });
+    return manager;
+}
+
 + (instancetype)manager {
     static RZRichTextConfigureManager *manager = nil;
     static dispatch_once_t onceToken;

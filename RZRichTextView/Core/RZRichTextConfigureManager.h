@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 单例  */
 + (instancetype)manager;
 
+/** 单例(提供swift使用)  */
++ (instancetype)defaultManager;
+
 #pragma mark - 自定义键盘上的工具栏的cell相关信息
 /** 键盘上的工具条功能数组，可新增、删除、交换位置
     如果要添加自定义的功能，添加的RZRichTextAttributeType 请尽量从100以后添加，
